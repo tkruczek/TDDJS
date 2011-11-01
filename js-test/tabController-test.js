@@ -24,6 +24,16 @@
 			assertException(function() {
 				tabController.create({});
 			}, 'TypeError');
+		},
+		
+		'test should return object' : function() {
+			var controller = tabController.create(this.tabs);
+			assertObejct(contoller);
+		},
+		
+		'test should add js-tabs class name to element' : function() {
+			var tabs = tabController.create(this.tabs);
+			assertClassName('js-tab-controller', this.tabs);
 		}
 	});
-});
+}());
