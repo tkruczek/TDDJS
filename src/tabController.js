@@ -1,17 +1,17 @@
 /*jslint maxlen: 80, eqeq: false, browser: true, vars: false */
 /*globals tddjs, window */
-(function() {
+(function () {
     var dom = tddjs.dom;
     
     function create(element) {
-        if (!element || typeof element.className !== 'string') {
+        if (!element || (typeof element.className !== 'string')) {
             throw new TypeError('element is not an element');
         }
         
         dom.addClassName(element, 'js-tab-controller');
         var tabs = Object.create(this);
         
-        element.onClick = function (event) {
+        element.onclick = function (event) {
             tabs.handleTabClick(event || window.event || {});
         };
         
@@ -51,7 +51,7 @@
       create: create,
       handleTabClick: handleTabClick,
       activateTab: activateTab,
-      onTabChance: function (anchor, previous) {
+      onTabChange: function (anchor, previous) {
           
       },
       tabTagName: 'a'

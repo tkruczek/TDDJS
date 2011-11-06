@@ -6,17 +6,22 @@
 
   //All test cases can share this setUp
   function setUp() {
-    /*: DOC += <ol id = "tabs">
+    /*:DOC += <ol id = "tabs">
      * <li><a href="#news">News</a></li>
      * <li><a href="#sports">Sports</a></li>
      * <li><a href="#economy">Economy</a></li>
+     * </ol>
      */
     this.tabs = document.getElementById('tabs');
+    //alert(this.tabs);
   }
-
+  function tearDown() {
+    document.removeChild(this.tabs);   
+  }
+  
   TestCase('TabControllerCreateTest', {
     setUp : setUp,
-
+    tearDonw: tearDown,
     'test should fail without element' : function () {
       assertException(function () {
         tabController.create();
